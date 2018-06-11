@@ -1,4 +1,4 @@
-package it.uniroma3.security;
+/*package it.uniroma3.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class WebMVCSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
           .withUser("admin").password("admin")
-          .authorities("ROLE_ADMINISTRATOR");
+          .authorities("ROLE_USER");
         
     }
  
@@ -44,4 +44,4 @@ public class WebMVCSecurity extends WebSecurityConfigurerAdapter {
           .and()
           .httpBasic();
     }
-}
+}*/
