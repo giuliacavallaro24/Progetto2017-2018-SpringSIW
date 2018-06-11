@@ -27,7 +27,7 @@ public class AllievoController {
     @RequestMapping("/allievi")
     public String allievi(Model model) {
         model.addAttribute("allievi", this.allievoService.findAll());
-        return "allievoList";
+        return "allievoTable";	// return "allievoList";
     }
 
     @RequestMapping("/addAllievo")
@@ -55,7 +55,7 @@ public class AllievoController {
             if (!bindingResult.hasErrors()) {
                 this.allievoService.save(allievo);
                 model.addAttribute("allievi", this.allievoService.findAll());
-                return "allievoList";
+                return "allievoTable"; //return "allievoList";
             }
         }
         return "allievoForm";
