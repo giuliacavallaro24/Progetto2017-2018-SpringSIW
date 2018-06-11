@@ -1,7 +1,7 @@
 package it.uniroma3.model;
 
 import java.util.Map;
-import it.uniroma3.model.Attività;
+import it.uniroma3.model.Attivita;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +33,7 @@ public class Allievo {
 	private String luogoNascita;
 	
 	@ManyToMany
-	private Map<String, Attività> attività;
+	private Map<String, Attivita> attivita;
 	
 
 	public Allievo() {}
@@ -95,12 +95,12 @@ public class Allievo {
 		this.luogoNascita = luogoNascita;
 	}
 
-	public Map<String, Attività> getAttività() {
-		return attività;
+	public Map<String, Attivita> getAttivita() {
+		return attivita;
 	}
 
-	public void setAttività(Map<String, Attività> attività) {
-		this.attività = attività;
+	public void setAttivita(Map<String, Attivita> attivita) {
+		this.attivita = attivita;
 	}
 
 	public Long getId() {

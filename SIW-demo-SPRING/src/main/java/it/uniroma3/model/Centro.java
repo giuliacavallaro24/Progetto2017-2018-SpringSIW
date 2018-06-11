@@ -61,7 +61,7 @@ public class Centro {
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="centro_id")
-	private Map<String, Attività> attività;     
+	private Map<String, Attivita> attivita;     
 	
 	@ManyToOne
 	private Responsabile responsabile;
@@ -114,12 +114,12 @@ public class Centro {
 		this.capienzaMax = capienzaMax;
 	}
 
-	public Map<String, Attività> getAttività() {
-		return attività;
+	public Map<String, Attivita> getAttivita() {
+		return attivita;
 	}
 
-	public void setAttività(Map<String, Attività> attività) {
-		this.attività = attività;
+	public void setAttivita(Map<String, Attivita> attivita) {
+		this.attivita = attivita;
 	}
 
 	public Long getId() {

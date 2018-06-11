@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Attività {
+public class Attivita {
 
 	@Override
 	public int hashCode() {
@@ -28,7 +28,7 @@ public class Attività {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Attività other = (Attività) obj;
+		Attivita other = (Attivita) obj;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
@@ -49,18 +49,20 @@ public class Attività {
 	@ManyToOne
 	private Centro centro;
 	
-	@ManyToMany(mappedBy="attività")
+	@ManyToMany(mappedBy="attivita")
 	private Map<String, Allievo> allievi;
 	
 	public Map<String, Allievo> getAllievi() {
 		return allievi;
 	}
-	public void setAllievi(Map<String, Allievo> allievi) {
-		this.allievi = allievi;
-	}
-	public Attività(String nome, String data) {
+	
+	public Attivita(String nome, String data) {
 		this.nome = nome;
 		this.dataOra = data;
+	}
+	
+	public void setAllievi(Map<String, Allievo> allievi) {
+		this.allievi = allievi;
 	}
 	public Centro getCentro() {
 		return centro;
