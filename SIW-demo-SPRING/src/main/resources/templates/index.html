@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="utf-8">
@@ -148,9 +148,8 @@ http://www.templatemo.com/tm-490-comila
 							<p>Password:</p>
 							<input type="password" name="Password" 
 								placeholder="Enter Password"/>
-							<div></div>
 							<div>
-								<a href="/allievi">Entra</a>
+								<a th:href="operazioni.html">Entra</a>
 							</div>
 						</div>
 					</form>
