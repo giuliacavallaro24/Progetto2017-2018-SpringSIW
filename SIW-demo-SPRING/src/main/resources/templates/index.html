@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
-
-<meta charset="utf-8">
-
-<title>Progetto2017-2018 Siw Betti/Cavallaro</title>
-<!--
-Comila Template
-http://www.templatemo.com/tm-490-comila
--->
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="">
-<meta name="description" content="">
-
-<!-- stylesheets css -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.min.css">
-
-<link rel="stylesheet" href="css/et-line-font.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-
-<link rel="stylesheet" href="css/vegas.min.css">
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" type="text/css"
-	href="css/styleFormConnessione.css">
-
-<link
-	href='https://fonts.googleapis.com/css?family=Rajdhani:400,500,700'
-	rel='stylesheet' type='text/css'>
-
-<style>
-@import
-	url('https://fonts.googleapis.com/css?family=Lato:400i|Exo+2:900i|Roboto:100')
-	;
-</style>
+	<meta charset="utf-8">
+	
+	<title>Progetto2017-2018 Siw Betti/Cavallaro</title>
+	<!--
+	Comila Template
+	http://www.templatemo.com/tm-490-comila
+	-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+	<!-- stylesheets css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	
+	<link rel="stylesheet" href="css/et-line-font.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/vegas.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<link rel="stylesheet" type="text/css"
+		href="css/styleFormConnessione.css">
+	
+	<link
+		href='https://fonts.googleapis.com/css?family=Rajdhani:400,500,700'
+		rel='stylesheet' type='text/css'>
+	
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Lato:400i|Exo+2:900i|Roboto:100');
+	</style>
 </head>
 <body>
 	<h1 class="logo">
@@ -148,7 +145,7 @@ http://www.templatemo.com/tm-490-comila
 							<p>Password:</p>
 							<input type="password" name="Password" placeholder="Enter Password"/>
 							<div>
-								<a th:href="operazioni.html">Entra</a>
+								<a th:href="@{/operazioni.html}" href="operazioni.html">Entra</a>
 							</div>
 						</div>
 					</form>
