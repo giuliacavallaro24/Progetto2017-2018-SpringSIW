@@ -61,6 +61,9 @@ public class Attivita {
 		this.dataOra = data;
 	}
 	
+	public Attivita() {
+		// TODO Auto-generated constructor stub
+	}
 	public void setAllievi(Map<String, Allievo> allievi) {
 		this.allievi = allievi;
 	}

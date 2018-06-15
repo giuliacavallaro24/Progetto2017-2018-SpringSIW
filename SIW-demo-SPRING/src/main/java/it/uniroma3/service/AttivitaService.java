@@ -3,9 +3,16 @@ package it.uniroma3.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import it.uniroma3.model.Attivita;
 import it.uniroma3.repository.AttivitaRepository;
 
+@Transactional
+@Service
 public class AttivitaService {
 
 	
@@ -33,8 +40,8 @@ public class AttivitaService {
 	}
 
 	public boolean alreadyExists(Attivita attivita) {
-		List<Attivita> attivita = this.attivitaRepository.findByNomeAndEmail(attivita.getNome(), attivita.getEmail());
-		if (attivita.size() > 0)
+		List<Attivita> lista = this.attivitaRepository.findByNome(attivita.getNome());
+		if (lista.size() > 0)
 			return true;
 		else 
 			return false;

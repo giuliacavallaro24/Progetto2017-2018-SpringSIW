@@ -83,6 +83,10 @@ public class Centro {
 		this.capienzaMax = cap;
 	}
 	
+	public Centro() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getNome() {
 		return nome;
 	}
