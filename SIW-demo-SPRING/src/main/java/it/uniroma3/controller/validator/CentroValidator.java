@@ -1,16 +1,17 @@
 package it.uniroma3.controller.validator;
 
-import javax.xml.validation.Validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 
 import it.uniroma3.model.Centro;
 
 @Component
-public abstract class CentroValidator extends Validator {
+public class CentroValidator implements Validator {
 	
+	@Override
 	public void validate(Object o, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "indirizzo", "required");
@@ -19,7 +20,7 @@ public abstract class CentroValidator extends Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "maxCapienza", "required");
 	}
 
-	
+	@Override
 	public boolean supports(Class<?> aClass) {
 		return Centro.class.equals(aClass);
 	}
