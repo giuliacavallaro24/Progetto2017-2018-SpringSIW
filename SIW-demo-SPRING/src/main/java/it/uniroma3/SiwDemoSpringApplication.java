@@ -21,6 +21,10 @@ public class SiwDemoSpringApplication {
 	
 	@PostConstruct
 	public void init() {
+		this.carica();
+	}
+	
+	private void carica() {
 		Allievo allievo = new Allievo("Carlo", "Verdi", "verdicarlo@me.it", "1234", "12/07/89", "Ginevra");
 		allievoService.save(allievo);
 		for(Allievo a : allievoService.findByEmail("verdicarlo@me.it")) {

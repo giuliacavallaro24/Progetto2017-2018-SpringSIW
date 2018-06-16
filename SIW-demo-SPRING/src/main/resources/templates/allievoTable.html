@@ -38,7 +38,9 @@
 							<tbody>
 							<tr class="row100 body">
 								<td th:each="allievo : ${allievi}">
-									<span class="cell100 column1" th:text="${allievo.nome} + ' ' + ${allievo.cognome}"></span>
+									<a th:href="@{'/allievo' + '/' + ${allievo.id}}">
+										<span class="cell100 column1" th:text="${allievo.nome} + ' ' + ${allievo.cognome}"></span>
+									</a>
 								</td>
 							</tr>
 							</tbody>
@@ -117,6 +119,11 @@
 
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+
+		<div>
+			<a th:href ="@{/activities}">Lista di tutti gli Centri</a>
+		</div>
 
 </body>
 </html>

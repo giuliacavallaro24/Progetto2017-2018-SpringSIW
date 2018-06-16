@@ -38,7 +38,9 @@
 							<tbody>
 							<tr class="row100 body">
 								<td th:each="centro : ${centri}">
-									<span class="cell100 column1" th:text="${centro.nome}"></span>
+									<a th:href="@{'/centro' + '/' + ${centro.id}}">
+										<span class="cell100 column1" th:text="${centro.nome}"></span>
+									</a>
 								</td>
 							</tr>
 							</tbody>
@@ -52,8 +54,7 @@
 									<tr class="row100 head">
 										<th class="cell100 column2">Email</th>
 										<th class="cell100 column3">Telefono</th>
-										<th class="cell100 column4">Data di nascita</th>
-										<th class="cell100 column5">Luogo di nascita</th>
+										<th class="cell100 column4">Capienza massima</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -65,10 +66,7 @@
 											<span class="cell100 column3" th:utext="${centro.telefono}"></span>
 										</td>
 										<td th:each="centro : ${centri}">
-											<span class="cell100 column4" th:utext="${centro.dataNascita}"></span>
-										</td>
-										<td th:each="centro : ${centri}">
-											<span class="cell100 column5" th:utext="${centro.luogoNascita}"></span>
+											<span class="cell100 column4" th:utext="${centro.capienzaMax}"></span>
 										</td>
 									</tr>
 								</tbody>

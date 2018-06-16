@@ -38,7 +38,9 @@
 							<tbody>
 							<tr class="row100 body">
 								<td th:each="attivita : ${activities}">
-									<span class="cell100 column1" th:text="${attivita.nome}"></span>
+									<a th:href="@{'attivita' + '/' + ${attivita.id}}">
+										<span class="cell100 column1" th:text="${attivita.nome}"></span>
+									</a>
 								</td>
 							</tr>
 							</tbody>
@@ -105,6 +107,11 @@
 
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+
+		<div>
+			<a th:href ="@{/centri}">Inserisci un nuovo Centro</a>
+		</div>
 
 </body>
 </html>
