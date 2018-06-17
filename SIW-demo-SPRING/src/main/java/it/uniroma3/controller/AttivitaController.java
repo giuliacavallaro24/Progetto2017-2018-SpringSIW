@@ -32,7 +32,7 @@ public class AttivitaController {
     }
 
     @RequestMapping("/addAttivita")
-    public String addCentro(Model model) {
+    public String addAttivita(Model model) {
         model.addAttribute("attivita", new Attivita());
         return "attivitaForm";
     }
