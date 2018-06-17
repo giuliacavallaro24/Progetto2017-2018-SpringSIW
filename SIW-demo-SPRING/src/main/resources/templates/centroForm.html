@@ -55,35 +55,35 @@
 
 				<table>
 					<tr>
-						<td>Nome:</td>
+						<td class="label-input100">Nome:</td>
 						<td><input class="input100" type="text" th:field="*{nome}" /></td>
 						<td th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></td>
 					</tr>
 					<tr>
-						<td>Indirizzo:</td>
+						<td class="label-input100">Indirizzo:</td>
 						<td><input class="input100" type="text" th:field="*{indirizzo}" /></td>
 						<td th:if="${#fields.hasErrors('indirizzo')}"
 							th:errors="*{indirizzo}"></td>
 					</tr>
 					<tr>
-						<td>Email:</td>
+						<td class="label-input100">Email:</td>
 						<td><input class="input100" type="text" th:field="*{email}" /></td>
 						<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
 					</tr>
 					<tr>
-						<td>Telefono:</td>
+						<td class="label-input100">Telefono:</td>
 						<td><input class="input100" type="text" th:field="*{telefono}" /></td>
 						<td th:if="${#fields.hasErrors('telefono')}"
 							th:errors="*{telefono}"></td>
 					</tr>
 					<tr>
-						<td>Capienza Massima:</td>
+						<td class="label-input100">Capienza Massima:</td>
 						<td><input class="input100" type="text" th:field="*{capienzaMax}" /></td>
 						<td th:if="${#fields.hasErrors('capienzaMax')}"
 							th:errors="*{capienzaMax}"></td>
 					</tr>
 					<tr>
-						<td><button type="submit">Submit</button></td>
+						<td><button class="contact100-form-btn" type="submit">Submit</button></td>
 					</tr>
 				</table>
 			</div>
