@@ -165,7 +165,9 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: transparent;
+  background: url(https://thumbs.dreamstime.com/b/wooden-desk-background-office-artificial-green-plant-89505569.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   z-index: 1;
 }
