@@ -143,11 +143,16 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
+  background:url("https://startupi.com.br/wp-content/uploads/2018/03/art-it-investimento.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*
   background: #fa71cd;
   background: -webkit-linear-gradient(bottom, #c471f5, #fa71cd);
   background: -o-linear-gradient(bottom, #c471f5, #fa71cd);
   background: -moz-linear-gradient(bottom, #c471f5, #fa71cd);
   background: linear-gradient(bottom, #c471f5, #fa71cd);
+  */
 
 
 }
