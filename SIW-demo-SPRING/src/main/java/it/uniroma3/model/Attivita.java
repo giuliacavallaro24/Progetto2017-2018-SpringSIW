@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.HashMap;
 import java.util.Map;
 import it.uniroma3.model.Allievo;
 import javax.persistence.Column;
@@ -59,10 +60,11 @@ public class Attivita {
 	public Attivita(String nome, String data) {
 		this.nome = nome;
 		this.dataOra = data;
+		this.allievi = new HashMap<String,Allievo>();
 	}
 	
 	public Attivita() {
-		// TODO Auto-generated constructor stub
+		this.allievi = new HashMap<String,Allievo>();
 	}
 	public void setAllievi(Map<String, Allievo> allievi) {
 		this.allievi = allievi;
@@ -90,5 +92,8 @@ public class Attivita {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public void addAllievo(Allievo allievo) {
+		this.allievi.put(allievo.getEmail(), allievo);	
 	}
 }

@@ -27,7 +27,7 @@ public class AttivitaController {
     
     @RequestMapping("/activities")
     public String activities(Model model) {
-        model.addAttribute("centri", this.attivitaService.findAll());
+        model.addAttribute("activities", this.attivitaService.findAll());
         return "attivitaTable";	// return "allievoList";
     }
 
@@ -49,7 +49,7 @@ public class AttivitaController {
         this.validator.validate(attivita, bindingResult);
         
         if (this.attivitaService.alreadyExists(attivita)) {
-            model.addAttribute("exists", "Attivita già esistente");
+            model.addAttribute("exists", "Attivita giï¿½ esistente");
             return "attivitaForm";
         }
         else {

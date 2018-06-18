@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.Column;
@@ -74,17 +75,17 @@ public class Centro {
 		this.responsabile = responsabile;
 	}
 
-	// DA ELIMINARE
 	public Centro(String nome, String indirizzo, String email, long telefono, int cap) {
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 		this.email = email;
 		this.telefono = telefono;
 		this.capienzaMax = cap;
+		this.attivita = new HashMap<String,Attivita>();
 	}
 	
 	public Centro() {
-		// TODO Auto-generated constructor stub
+		this.attivita = new HashMap<String,Attivita>();
 	}
 
 	public String getNome() {
@@ -136,5 +137,9 @@ public class Centro {
 
 	public void setTelefono(long telefono) {
 		this.telefono = telefono;
+	}
+
+	public void addAttivita(Attivita attivita) {
+		this.attivita.put(attivita.getNome(), attivita);
 	}	
 }

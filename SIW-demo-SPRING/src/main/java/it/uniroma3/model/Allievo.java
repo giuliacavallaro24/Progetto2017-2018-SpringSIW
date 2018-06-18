@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.HashMap;
 import java.util.Map;
 import it.uniroma3.model.Attivita;
 import javax.persistence.Column;
@@ -34,9 +35,10 @@ public class Allievo {
 	
 	@ManyToMany
 	private Map<String, Attivita> attivita;
-	
 
-	public Allievo() {}
+	public Allievo() {
+		this.attivita = new HashMap<String,Attivita>();
+	}
 
 	public Allievo(String nome, String cognome, String email, String telefono, String dataNascita, String luogoNascita ) {
 		this.nome = nome;
@@ -45,6 +47,7 @@ public class Allievo {
 		this.telefono = telefono;
 		this.dataNascita = dataNascita;
 		this.luogoNascita = luogoNascita;
+		this.attivita = new HashMap<String,Attivita>();
 	}
 
 	public String getNome() {
@@ -135,6 +138,9 @@ public class Allievo {
 			return false;
 		return true;
 	}
-	
+
+	public void addAttivita(Attivita attivita) {
+		this.attivita.put(attivita.getNome(), attivita);
+	}
 	
 }

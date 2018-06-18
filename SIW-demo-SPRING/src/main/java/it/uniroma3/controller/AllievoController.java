@@ -24,7 +24,7 @@ public class AllievoController {
     @Autowired
     private AllievoValidator validator;
 
-    @RequestMapping(value="/loginForm")
+/*    @RequestMapping(value="/loginForm")
     public String termineLogin(Model model,@PathVariable("username") String username, @PathVariable("password") String password){
         boolean isValidUser = true; //AllievoService.validateUser(username, password);
 
@@ -36,7 +36,7 @@ public class AllievoController {
         model.addAttribute("password", password);
         return "allievoForm";
     }
-    
+*/
     @RequestMapping("/allievi")
     public String allievi(Model model) {
         model.addAttribute("allievi", this.allievoService.findAll());
@@ -61,7 +61,7 @@ public class AllievoController {
         this.validator.validate(allievo, bindingResult);
         
         if (this.allievoService.alreadyExists(allievo)) {
-            model.addAttribute("exists", "Allievo gi� esistente");
+            model.addAttribute("exists", "Allievo gia' esistente");
             return "allievoForm";
         }
         else {
