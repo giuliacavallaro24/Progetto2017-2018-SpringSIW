@@ -15,7 +15,6 @@ import it.uniroma3.repository.AttivitaRepository;
 @Service
 public class AttivitaService {
 
-	
 	@Autowired
 	private AttivitaRepository attivitaRepository; 
 	

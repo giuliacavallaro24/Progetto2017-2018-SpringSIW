@@ -16,38 +16,41 @@ public class Allievo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String nome;
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String cognome;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String email;
-	
+
 	@Column(nullable = false)
 	private String telefono;
 
+	@Column(nullable = false)
 	private String dataNascita;
 
+	@Column(nullable = false)
 	private String luogoNascita;
-	
+
 	@ManyToMany
 	private Map<String, Attivita> attivita;
 
 	public Allievo() {
-		this.attivita = new HashMap<String,Attivita>();
+		this.attivita = new HashMap<String, Attivita>();
 	}
 
-	public Allievo(String nome, String cognome, String email, String telefono, String dataNascita, String luogoNascita ) {
+	public Allievo(String nome, String cognome, String email, String telefono, String dataNascita,
+			String luogoNascita) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
 		this.telefono = telefono;
 		this.dataNascita = dataNascita;
 		this.luogoNascita = luogoNascita;
-		this.attivita = new HashMap<String,Attivita>();
+		this.attivita = new HashMap<String, Attivita>();
 	}
 
 	public String getNome() {
@@ -142,5 +145,5 @@ public class Allievo {
 	public void addAttivita(Attivita attivita) {
 		this.attivita.put(attivita.getNome(), attivita);
 	}
-	
+
 }

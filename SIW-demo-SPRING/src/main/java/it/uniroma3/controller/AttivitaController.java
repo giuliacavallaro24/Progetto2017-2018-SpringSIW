@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.controller.validator.AttivitaValidator;
 import it.uniroma3.model.Attivita;
+import it.uniroma3.model.Centro;
 import it.uniroma3.service.AttivitaService;
 
 @Controller
@@ -29,6 +30,12 @@ public class AttivitaController {
     public String activities(Model model) {
         model.addAttribute("activities", this.attivitaService.findAll());
         return "attivitaTable";	// return "allievoList";
+    }
+    
+    @RequestMapping(value = "/centro/{id}/activities", method = RequestMethod.GET)
+    public String activitiesCentro(@Valid @ModelAttribute("centro") Centro centro, Model model) {
+        model.addAttribute("activities", centro.getAttivita().values() );
+        return "attivitaTable";
     }
 
     @RequestMapping("/addAttivita")

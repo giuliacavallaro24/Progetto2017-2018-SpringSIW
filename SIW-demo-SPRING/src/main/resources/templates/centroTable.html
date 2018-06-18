@@ -40,7 +40,7 @@
 							<tbody>
 							<tr class="row100 body">
 								<td th:each="centro : ${centri}">
-									<a th:href="@{/activities}"> <!-- <a th:href="@{'/centro' + '/' + ${centro.id}}"> -->
+									<a th:href="@{'/activities'}"> <!-- <a th:href="@{'/centro' + '/' + ${centro.id} + '/activities'}">  -->
 										<span class="cell100 column1" th:text="${centro.nome}"></span>
 									</a>
 								</td>
