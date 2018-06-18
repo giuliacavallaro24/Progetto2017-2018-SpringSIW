@@ -39,7 +39,6 @@ public class SiwDemoSpringApplication {
 	
 	private void carica() {
 		Centro centro = new Centro("ACCADEMIA ESTETICA SPECIALIZZATA S.A.S", "V. Plinio, 7 - Roma", "info@scuola-silvestrini.it",  8009090, 300 );
-		centroService.save(centro);
 		Map<String, Attivita> att = new HashMap<>();
 		Attivita attivita = new Attivita("Formazione teorica", "lunedì/9-11 a.m.");
 		attivitaService.save(attivita);
@@ -48,6 +47,7 @@ public class SiwDemoSpringApplication {
 		attivitaService.save(attivita2);
 		att.put("Qualifica biennale minorenni", attivita2);
 		centro.setAttivita(att);
+		centroService.save(centro);
 		Allievo allievo = new Allievo("Carlo", "Verdi", "verdicarlo@me.it", "1234", "12/07/89", "Ginevra");
 		allievoService.save(allievo);
 		for(Allievo a : allievoService.findByEmail("verdicarlo@me.it")) {
