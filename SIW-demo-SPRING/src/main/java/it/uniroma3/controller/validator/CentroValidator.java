@@ -17,7 +17,7 @@ public class CentroValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "indirizzo", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "telefono", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "maxCapienza", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "capienzaMax", "required");
 	}
 
 	@Override
