@@ -38,7 +38,7 @@
 							</thead>
 							<tbody>
 							<tr class="row100 body">
-								<td th:each="attivita : ${activities}">
+								<td th:each="centro : ${activities}">
 									<a th:href="@{'attivita' + '/' + ${attivita.id}}">
 										<span class="cell100 column1" th:text="${attivita.nome}"></span>
 									</a>

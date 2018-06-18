@@ -20,6 +20,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="form/css/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -80,9 +81,9 @@
 				</div>
 			</div>
 		</div>
+		<div><a th:href="@{/addAllievo}" class="contact200-form-btn" >Inserisci un nuovo allievo</a> </div><br>
+		<div><a  th:href="@{/activities}" class="contact200-form-btn">Torna alla lista delle attività</a></div>
 	</div>
-
-
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -119,11 +120,6 @@
 
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
-
-		<div>
-			<a th:href ="@{/activities}">Lista di tutti gli Centri</a>
-		</div>
 
 </body>
 </html>
