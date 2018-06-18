@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div>
 			<a th:href="@{/addAttivita}" class="contact200-form-btn">Inserisci
-				nuova attività</a>
+				nuova attivita'</a>
 		</div>
 		<br>
 		<div>
@@ -47,12 +47,12 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Attività</th>
+									<th class="cell100 column1">Attivita'</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="row100 body">
-									<td th:each="centro : ${activities}"><a
+									<td th:each="attivita : ${activities}"><a
 										th:href="@{/allievi}">
 											<!--  <a th:href="@{'attivita' + '/' + ${attivita.id}}"> -->
 											<span class="cell100 column1" th:text="${attivita.nome}"></span>
