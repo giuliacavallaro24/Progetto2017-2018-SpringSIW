@@ -193,7 +193,7 @@ th, td {
 
 .column1 {
   width: 100%;
-  padding-left: 40px;
+  padding-left: 0px;
 }
 
 .column2 {
@@ -291,8 +291,8 @@ th, td {
 }
 
 .table100.ver1 td {
-  font-family: Roboto-Medium;
-  font-size: 12.5px;
+  font-family: Roboto, sans-serif;
+  font-size: 19.5px;
   line-height: 1.4;
 }
 
