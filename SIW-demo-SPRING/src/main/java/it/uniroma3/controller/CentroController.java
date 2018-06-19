@@ -49,14 +49,14 @@ public class CentroController {
         this.validator.validate(centro, bindingResult);
         
         if (this.centroService.alreadyExists(centro)) {
-            model.addAttribute("exists", "Centro già esistente");
+            model.addAttribute("exists", "Centro giï¿½ esistente");
             return "centroForm";
         }
         else {
             if (!bindingResult.hasErrors()) {
                 this.centroService.save(centro);
                 model.addAttribute("centri", this.centroService.findAll());
-                return "centroTable"; //return "allievoList";
+                return "centroTable"; //return "centroList";
             }
         }
         return "centroForm";

@@ -24,26 +24,16 @@ public class AllievoController {
 
 	@Autowired
 	private AllievoService allievoService;
-	
+
 	@Autowired
 	private AttivitaService attivitaService;
-	
+
 	@Autowired
 	private CentroService centroService;
 
 	@Autowired
 	private AllievoValidator validator;
 
-	/*
-	 * @RequestMapping(value="/loginForm") public String termineLogin(Model
-	 * model,@PathVariable("username") String username, @PathVariable("password")
-	 * String password){ boolean isValidUser = true;
-	 * //AllievoService.validateUser(username, password);
-	 * 
-	 * if (!isValidUser) { model.addAttribute("errorMessage",
-	 * "Invalid Credentials"); return "login.jsp"; } model.addAttribute("username",
-	 * username); model.addAttribute("password", password); return "allievoForm"; }
-	 */
 	@RequestMapping("/allievi")
 	public String allievi(Model model) {
 		model.addAttribute("allievi", this.allievoService.findAll());
@@ -57,7 +47,7 @@ public class AllievoController {
 		model.addAttribute("centro", centro);
 		model.addAttribute("attivita", attivita);
 		model.addAttribute("allievi", attivita.getAllievi());
-		return "attivitaTable";
+		return "allievoTable";
 	}
 
 	@RequestMapping("/addAllievo")
@@ -65,7 +55,7 @@ public class AllievoController {
 		model.addAttribute("allievo", new Allievo());
 		return "allievoForm";
 	}
-	
+
 	@RequestMapping(value = "/allievo/{id}", method = RequestMethod.GET)
 	public String getAllievooo(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("allievo", this.allievoService.findById(id));
@@ -73,7 +63,8 @@ public class AllievoController {
 	}
 
 	@RequestMapping("centro/{idc}/attivita/{ida}/allievo/{id}")
-	public String getAllievo(@PathVariable("idc") Long idc, @PathVariable("ida") Long ida, @PathVariable("id") Long id, Model model) {
+	public String getAllievo(@PathVariable("idc") Long idc, @PathVariable("ida") Long ida, @PathVariable("id") Long id,
+			Model model) {
 		Centro centro = centroService.findById(idc);
 		Attivita attivita = attivitaService.findById(ida);
 		Allievo allievo = allievoService.findById(id);
@@ -97,12 +88,11 @@ public class AllievoController {
 				Attivita attivita = attivitaService.findById(ida);
 				model.addAttribute("centro", centro);
 				model.addAttribute("attivita", attivita);
-				this.allievoService.save(allievo);
 				model.addAttribute("allievi", attivita.getAllievi());
+				this.allievoService.save(allievo);
 				return "allievoTable"; // return "allievoList";
 			}
 		}
 		return "allievoForm";
 	}
-
 }

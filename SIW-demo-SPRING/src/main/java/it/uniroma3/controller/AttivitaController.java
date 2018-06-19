@@ -21,60 +21,58 @@ import it.uniroma3.service.CentroService;
 public class AttivitaController {
 
 	@Autowired
-    private AttivitaService attivitaService;
+	private AttivitaService attivitaService;
 
 	@Autowired
-    private CentroService centroService;
-	
-    @Autowired
-    private AttivitaValidator validator;
+	private CentroService centroService;
 
-    
-    @RequestMapping("/activities")
-    public String activities(Model model, @Valid @ModelAttribute("centro") Centro centro) {
-        model.addAttribute("activities", centro.getAttivita());
-        return "attivitaTable";	// return "allievoList";
-    }
-    
-    @RequestMapping("/centro/{id}/activities")
-    public String activitiesCentro(@PathVariable("id") Long id, Model model) {
-    	Centro centro = centroService.findById(id);
-        model.addAttribute("activities", centro.getAttivita() );
-        return "attivitaTable";
-    }
+	@Autowired
+	private AttivitaValidator validator;
 
-    @RequestMapping("/addAttivita")
-    public String addAttivita(Model model) {
-        model.addAttribute("attivita", new Attivita());
-        return "attivitaForm";
-    }
+	@RequestMapping("/activities")
+	public String activities(Model model, @Valid @ModelAttribute("centro") Centro centro) {
+		model.addAttribute("activities", centro.getAttivita());
+		return "attivitaTable"; // return "allievoList";
+	}
 
-    @RequestMapping(value = "/attivita/{id}", method = RequestMethod.GET)
-    public String getAttivita(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("attivita", this.attivitaService.findById(id));
-    	return "showAttivita";
-    }
+	@RequestMapping("/centro/{id}/activities")
+	public String activitiesCentro(@PathVariable("id") Long id, Model model) {
+		Centro centro = centroService.findById(id);
+		model.addAttribute("centro",centro);
+		model.addAttribute("activities", centro.getAttivita());
+		return "attivitaTable";
+	}
 
-    @RequestMapping("/centro/{id}/attivita")
-    public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, 
-    									Model model, BindingResult bindingResult, 
-    									@PathVariable("id") Long id ) {
-        this.validator.validate(attivita, bindingResult);
-        
-        if (this.attivitaService.alreadyExists(attivita)) {
-            model.addAttribute("exists", "Attivita gia' esistente");
-            return "attivitaForm";
-        }
-        else {
-            if (!bindingResult.hasErrors()) {
-                this.attivitaService.save(attivita);
-                Centro centro = centroService.findById(id);
-                centro.addAttivita(attivita);
-                model.addAttribute("activities", centro.getAttivita());
-                return "attivitaTable"; //return "allievoList";
-            }
-        }
-        return "attivitaForm";
-    }
+	@RequestMapping("/addAttivita")
+	public String addAttivita(Model model) {
+		model.addAttribute("attivita", new Attivita());
+		return "attivitaForm";
+	}
 
+	@RequestMapping(value = "/attivita/{id}", method = RequestMethod.GET)
+	public String getAttivita(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("attivita", this.attivitaService.findById(id));
+		return "showAttivita";
+	}
+
+	@RequestMapping("/centro/{id}/attivita")
+	public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, Model model,
+			BindingResult bindingResult, @PathVariable("id") Long id) {
+		this.validator.validate(attivita, bindingResult);
+
+		if (this.attivitaService.alreadyExists(attivita)) {
+			model.addAttribute("exists", "Attivita gia' esistente");
+			return "attivitaForm";
+		} else {
+			if (!bindingResult.hasErrors()) {
+				this.attivitaService.save(attivita);
+				Centro centro = centroService.findById(id);
+				centro.addAttivita(attivita);
+				model.addAttribute("centro", centro);
+				model.addAttribute("activities", centro.getAttivita());
+				return "attivitaTable"; // return "allievoList";
+			}
+		}
+		return "attivitaForm";
+	}
 }

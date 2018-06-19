@@ -1,7 +1,7 @@
 package it.uniroma3.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import it.uniroma3.model.Allievo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,23 +28,23 @@ public class Attivita {
 	private Centro centro;
 
 	@ManyToMany(mappedBy = "attivita")
-	private Map<String, Allievo> allievi;
+	private List<Allievo> allievi;
 
-	public Map<String, Allievo> getAllievi() {
+	public List<Allievo> getAllievi() {
 		return allievi;
 	}
 
 	public Attivita(String nome, String data) {
 		this.nome = nome;
 		this.dataOra = data;
-		this.allievi = new HashMap<String, Allievo>();
+		this.allievi = new ArrayList<Allievo>();
 	}
 
 	public Attivita() {
-		this.allievi = new HashMap<String, Allievo>();
+		this.allievi = new ArrayList<Allievo>();
 	}
 
-	public void setAllievi(Map<String, Allievo> allievi) {
+	public void setAllievi(List<Allievo> allievi) {
 		this.allievi = allievi;
 	}
 
@@ -81,7 +81,7 @@ public class Attivita {
 	}
 
 	public void addAllievo(Allievo allievo) {
-		this.allievi.put(allievo.getEmail(), allievo);
+		this.allievi.add(allievo);
 	}
 
 	@Override
