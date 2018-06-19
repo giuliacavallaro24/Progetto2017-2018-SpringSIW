@@ -166,6 +166,22 @@ iframe {
 
 }
 
+.attivitaContainer-table100{
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 33px 100px;
+}
+
+
 .container-table100 {
   max-width: 1366px;
   margin: 0 auto;
@@ -250,6 +266,15 @@ th, td {
 .table100 {
   width: 100%;
   position: relative;
+}
+
+.attivitaTable100-firstcol {
+  background-color: #fff;
+  position: absolute;
+  z-index: 1000;
+  width: 330px;
+  top: 0;
+  left: 30px;
 }
 
 .table100-firstcol {
