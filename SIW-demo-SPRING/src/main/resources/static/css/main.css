@@ -32,6 +32,15 @@ body, html {
 	font-family: sans-serif;
 }
 
+.row {
+    display: inline-block;
+    display: grid;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
 /* ------------------------------------ */
 a {
 	margin: 0px;
