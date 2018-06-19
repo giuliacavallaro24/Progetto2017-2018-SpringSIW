@@ -1,0 +1,84 @@
+@charset "ISO-8859-1";
+
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url('../fonts/roboto/Roboto-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Roboto-Medium;
+  src: url('../fonts/roboto/Roboto-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Roboto-Bold;
+  src: url('../fonts/roboto/Roboto-Bold.ttf'); 
+}
+
+html{
+	margin: 0px;
+	padding: 0px;
+	background: url("http://backgroundcheckall.com/wp-content/uploads/2017/12/study-background-11.jpg");
+	background-size: cover;
+	background-position: unset;
+}
+
+
+
+.showBox{
+	
+	width: 400px;
+    height: 360px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 45px;
+}
+
+h4{
+	maring: 0;
+	padding: 10px 0 20px;
+	text-align: center;
+	font-size: 22px;
+	font-family: 'Exo 2', sans-serif;	
+	color: #f6df00;
+}
+
+.showBox div{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	margin-left: 110px;
+	font-family: Roboto;
+}
+
+.showBox a{
+	border: none;
+    outline: none;
+    height: 30px;
+    background: #f3ad2e;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: unset;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: initial;
+    display: table;
+}
+
+.showBox a:hoover{
+	cursor: pointer;
+	background: #f6df00;
+	color: #000;
+}
+
+
+
+

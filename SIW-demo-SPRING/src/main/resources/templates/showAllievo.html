@@ -2,9 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Allievo</title>
+    <meta charset="UTF-8">
+   	<link rel="stylesheet" type='text/css' href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type='text/css' href="/vendor/bootstrap/css/showAllievoCss.css">
+    <style>
+	@import url('https://fonts.googleapis.com/css?family=Lato:400i|Exo+2:900i|Roboto:100');
+	</style>
 </head>
 <body>
-    <div>
+    <div class="showBox">
     	<h4>Allievo</h4>
 		<div>
 			Nome: <span th:text="${allievo.nome}"></span>
@@ -23,10 +29,9 @@
    		</div>
    		<div>
 			Luogo di nascita: <span th:text="${allievo.luogoNascita}"></span>
-   		</div>
-   		<p></p>
-   		<div><a th:href="@{/}">Rimuovi iscrizione all'attivita'</a></div>
-   		<div><a th:href="@{/}">Rimuovi allievo dal sistema</a></div>
+   		</div><br>
+   		<a th:href="@{/}">Rimuovi iscrizione all'attivita'</a><br><br>
+   		<a th:href="@{/}">Rimuovi allievo dal sistema</a>
     </div>
 </body>
 </html>
