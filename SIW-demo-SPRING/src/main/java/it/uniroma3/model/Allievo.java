@@ -1,8 +1,7 @@
 package it.uniroma3.model;
 
-import java.util.HashMap;
-import java.util.Map;
-import it.uniroma3.model.Attivita;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,10 +35,10 @@ public class Allievo {
 	private String luogoNascita;
 
 	@ManyToMany
-	private Map<String, Attivita> attivita;
+	private List<Attivita> attivita;
 
 	public Allievo() {
-		this.attivita = new HashMap<String, Attivita>();
+		this.attivita = new ArrayList<Attivita>();
 	}
 
 	public Allievo(String nome, String cognome, String email, String telefono, String dataNascita,
@@ -50,7 +49,7 @@ public class Allievo {
 		this.telefono = telefono;
 		this.dataNascita = dataNascita;
 		this.luogoNascita = luogoNascita;
-		this.attivita = new HashMap<String, Attivita>();
+		this.attivita = new ArrayList<Attivita>();
 	}
 
 	public String getNome() {
@@ -101,11 +100,11 @@ public class Allievo {
 		this.luogoNascita = luogoNascita;
 	}
 
-	public Map<String, Attivita> getAttivita() {
+	public List<Attivita> getAttivita() {
 		return attivita;
 	}
 
-	public void setAttivita(Map<String, Attivita> attivita) {
+	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
 	}
 
@@ -143,7 +142,7 @@ public class Allievo {
 	}
 
 	public void addAttivita(Attivita attivita) {
-		this.attivita.put(attivita.getNome(), attivita);
+		this.attivita.add(attivita);
 	}
 
 }

@@ -15,6 +15,7 @@ import it.uniroma3.controller.validator.AttivitaValidator;
 import it.uniroma3.model.Attivita;
 import it.uniroma3.model.Centro;
 import it.uniroma3.service.AttivitaService;
+import it.uniroma3.service.CentroService;
 
 @Controller
 public class AttivitaController {
@@ -22,19 +23,23 @@ public class AttivitaController {
 	@Autowired
     private AttivitaService attivitaService;
 
+	@Autowired
+    private CentroService centroService;
+	
     @Autowired
     private AttivitaValidator validator;
 
     
     @RequestMapping("/activities")
-    public String activities(Model model) {
-        model.addAttribute("activities", this.attivitaService.findAll());
+    public String activities(Model model, @Valid @ModelAttribute("centro") Centro centro) {
+        model.addAttribute("activities", centro.getAttivita());
         return "attivitaTable";	// return "allievoList";
     }
     
-    @RequestMapping(value = "/centro/{id}/activities", method = RequestMethod.GET)
-    public String activitiesCentro(@Valid @ModelAttribute("centro") Centro centro, Model model) {
-        model.addAttribute("activities", centro.getAttivita().values() );
+    @RequestMapping("/centro/{id}/activities")
+    public String activitiesCentro(@PathVariable("id") Long id, Model model) {
+    	Centro centro = centroService.findById(id);
+        model.addAttribute("activities", centro.getAttivita() );
         return "attivitaTable";
     }
 
@@ -50,19 +55,22 @@ public class AttivitaController {
     	return "showAttivita";
     }
 
-    @RequestMapping(value = "/attivita", method = RequestMethod.POST)
+    @RequestMapping("/centro/{id}/attivita")
     public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, 
-    									Model model, BindingResult bindingResult) {
+    									Model model, BindingResult bindingResult, 
+    									@PathVariable("id") Long id ) {
         this.validator.validate(attivita, bindingResult);
         
         if (this.attivitaService.alreadyExists(attivita)) {
-            model.addAttribute("exists", "Attivita gi� esistente");
+            model.addAttribute("exists", "Attivita gia' esistente");
             return "attivitaForm";
         }
         else {
             if (!bindingResult.hasErrors()) {
                 this.attivitaService.save(attivita);
-                model.addAttribute("activities", this.attivitaService.findAll());
+                Centro centro = centroService.findById(id);
+                centro.addAttivita(attivita);
+                model.addAttribute("activities", centro.getAttivita());
                 return "attivitaTable"; //return "allievoList";
             }
         }

@@ -1,8 +1,7 @@
 package it.uniroma3.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,7 +36,7 @@ public class Centro {
 
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "centro_id")
-	private Map<String, Attivita> attivita;
+	private List<Attivita> attivita;
 
 	@ManyToOne
 	private Responsabile responsabile;
@@ -56,11 +55,11 @@ public class Centro {
 		this.email = email;
 		this.telefono = telefono;
 		this.capienzaMax = cap;
-		this.attivita = new HashMap<String, Attivita>();
+		this.attivita = new ArrayList<Attivita>();
 	}
 
 	public Centro() {
-		this.attivita = new HashMap<String, Attivita>();
+		this.attivita = new ArrayList<Attivita>();
 	}
 
 	public String getNome() {
@@ -103,11 +102,11 @@ public class Centro {
 		this.capienzaMax = capienzaMax;
 	}
 
-	public Map<String, Attivita> getAttivita() {
+	public List<Attivita> getAttivita() {
 		return attivita;
 	}
 
-	public void setAttivita(Map<String, Attivita> attivita) {
+	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
 	}
 
@@ -124,7 +123,7 @@ public class Centro {
 	}
 
 	public void addAttivita(Attivita attivita) {
-		this.attivita.put(attivita.getNome(), attivita);
+		this.attivita.add(attivita);
 	}
 
 	@Override
