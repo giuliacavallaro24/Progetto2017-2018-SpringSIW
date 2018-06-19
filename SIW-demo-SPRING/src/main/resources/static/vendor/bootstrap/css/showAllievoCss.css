@@ -52,8 +52,8 @@ html{
 
 .showBox{
 	
-	width: 400px;
-    height: 360px;
+	width: 600px;
+    height: 460px;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     top: 50%;
@@ -79,6 +79,9 @@ h4{
 	font-weight: bold;
 	margin-left: 110px;
 	font-family: Roboto;
+	font-size: 20px;
+	padding-top: 5px;
+
 }
 
 .showBox a{
@@ -90,7 +93,7 @@ h4{
     font-size: 18px;
     border-radius: 20px;
     margin: auto;
-    margin-top: unset;
+    margin-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
     position: initial;
