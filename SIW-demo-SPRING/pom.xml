@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>siw-demo-spring</artifactId>
+	<artifactId>Progetto-SIW-CavallaroBetti-2017-2018</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>siw-demo-spring</name>
+	<name>Progetto-SIW-CavallaroBetti-2017-2018</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
