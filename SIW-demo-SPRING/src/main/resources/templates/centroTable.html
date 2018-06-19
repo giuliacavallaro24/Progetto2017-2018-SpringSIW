@@ -54,21 +54,25 @@
 							<table>
 								<thead>
 									<tr class="row100 head">
-										<th class="cell100 column2">Email</th>
-										<th class="cell100 column3">Telefono</th>
-										<th class="cell100 column4">Capienza massima</th>
+										<th class="cell100 column2">Indirizzo</th>
+										<th class="cell100 column3">Email</th>
+										<th class="cell100 column4">Telefono</th>
+										<th class="cell100 column5">Capienza massima</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr class="row100 body">
 										<td th:each="centro : ${centri}">
-											<span class="cell100 column2" th:utext="${centro.email}"></span>
+											<span class="cell100 column2" th:utext="${centro.indirizzo}"></span>
 										</td>
 										<td th:each="centro : ${centri}">
-											<span class="cell100 column3" th:utext="${centro.telefono}"></span>
+											<span class="cell100 column3" th:utext="${centro.email}"></span>
 										</td>
 										<td th:each="centro : ${centri}">
-											<span class="cell100 column4" th:utext="${centro.capienzaMax}"></span>
+											<span class="cell100 column4" th:utext="${centro.telefono}"></span>
+										</td>
+										<td th:each="centro : ${centri}">
+											<span class="cell100 column5" th:utext="${centro.capienzaMax}"></span>
 										</td>
 									</tr>
 								</tbody>
