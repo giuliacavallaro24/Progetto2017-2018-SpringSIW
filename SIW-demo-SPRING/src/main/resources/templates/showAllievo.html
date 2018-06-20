@@ -9,8 +9,10 @@
 	@import url('https://fonts.googleapis.com/css?family=Lato:400i|Exo+2:900i|Roboto:100');
 	</style>
 </head>
+
 <body>
     <div class="showBox">
+    
     	<h4>Allievo</h4>
 		<div>
 			Nome: <span th:text="${allievo.nome}"></span>
@@ -30,7 +32,8 @@
    		<div>
 			Luogo di nascita: <span th:text="${allievo.luogoNascita}"></span>
    		</div><br>
-   		<a th:href="@{/}">Rimuovi iscrizione all'attivita'</a><br><br>
+   		<a th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievi'}">Torna alla lista degli allievi</a><br>
+   		<a th:href="@{/}">Rimuovi iscrizione all'attivita'</a><br>
    		<a th:href="@{/}">Rimuovi allievo dal sistema</a>
     </div>
 </body>
