@@ -100,7 +100,6 @@ public class AllievoController {
 		Centro centro = centroService.findById(idc);
 		Attivita attivita = attivitaService.findById(ida);
 		attivita.removeAllievo(allievo);
-		allievo.removeAttivita(attivita);
 		model.addAttribute("centro", centro);
 		model.addAttribute("attivita", attivita);
 		model.addAttribute("allievi", attivita.getAllievi());
