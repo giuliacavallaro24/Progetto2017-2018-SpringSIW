@@ -45,4 +45,8 @@ public class AttivitaService {
 		else 
 			return false;
 	}	
+	
+	public void delete(Attivita attivita) {
+		this.attivitaRepository.delete(attivita);
+	}
 }

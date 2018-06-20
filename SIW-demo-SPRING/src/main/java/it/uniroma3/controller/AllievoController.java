@@ -9,8 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import it.uniroma3.controller.validator.AllievoValidator;
 import it.uniroma3.model.Allievo;
 import it.uniroma3.model.Attivita;
@@ -98,11 +96,25 @@ public class AllievoController {
 	
 	@RequestMapping("/centro/{idc}/attivita/{ida}/allievo/{id}/disiscriviAllievo")
 	public String disiscriviAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, Model model,
-			BindingResult bindingResult, @PathVariable("idc") Long idc, @PathVariable("ida") Long ida, @PathVariable("id") Long id) {
+			BindingResult bindingResult, @PathVariable("idc") Long idc, @PathVariable("ida") Long ida) {
 		Centro centro = centroService.findById(idc);
 		Attivita attivita = attivitaService.findById(ida);
 		attivita.removeAllievo(allievo);
 		allievo.removeAttivita(attivita);
+		model.addAttribute("centro", centro);
+		model.addAttribute("attivita", attivita);
+		model.addAttribute("allievi", attivita.getAllievi());
+		
+		return "allievoTable";
+	}
+	
+	@RequestMapping("/centro/{idc}/attivita/{ida}/allievo/{id}/eliminaAllievo")
+	public String eliminaAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, Model model,
+			BindingResult bindingResult, @PathVariable("idc") Long idc, @PathVariable("ida") Long ida) {
+		Centro centro = centroService.findById(idc);
+		Attivita attivita = attivitaService.findById(ida);
+		attivita.removeAllievo(allievo);
+		this.allievoService.delete(allievo);
 		model.addAttribute("centro", centro);
 		model.addAttribute("attivita", attivita);
 		model.addAttribute("allievi", attivita.getAllievi());

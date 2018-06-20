@@ -80,4 +80,14 @@ public class AttivitaController {
 		}
 		return "attivitaForm";
 	}
+	
+	@RequestMapping("/centro/{idc}/attivita/{ida}/eliminaAttivita")
+	public String eliminaAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, Model model,
+			BindingResult bindingResult, @PathVariable("idc") Long idc) {
+		Centro centro = centroService.findById(idc);
+		centro.removeAttivita(attivita);
+		model.addAttribute("centro", centro);
+		model.addAttribute("attivita", centro.getAttivita());
+		return "attivitaTable";
+	}
 }

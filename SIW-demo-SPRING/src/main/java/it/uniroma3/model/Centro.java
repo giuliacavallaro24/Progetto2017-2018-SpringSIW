@@ -139,4 +139,8 @@ public class Centro {
 			return false;
 		return true;
 	}
+
+	public void removeAttivita(Attivita attivita) {
+		this.attivita.remove(attivita);	
+	}
 }

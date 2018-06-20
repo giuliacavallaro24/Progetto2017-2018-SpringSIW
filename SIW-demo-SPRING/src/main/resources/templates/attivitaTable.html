@@ -94,7 +94,7 @@
 									<td th:each="attivita : ${activities}"><a
 										th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievi'}">
 											<!--  <a th:href="@{'/allievi'}"> --> <span
-											class="cell100 column1" th:text="${attivita.nome}"></span>
+											class="cell100 column1" th:text="${attivita.nome}" style="font-family:Poppins-Regular, sans-serif; font-size: 19.5px; color: #f1c11a;"></span>
 									</a></td>
 								</tr>
 							</tbody>
@@ -112,7 +112,7 @@
 								<tbody>
 									<tr class="row body">
 										<td th:each="attivita : ${activities}"><span
-											class="cell100 column2" th:utext="${attivita.dataOra}"></span>
+											class="cell100 column2" th:utext="${attivita.dataOra}" style="font-family:Poppins-Regular, sans-serif; font-size: 19.5px;"></span>
 										</td>
 									</tr>
 								</tbody>
