@@ -33,8 +33,8 @@
 			Luogo di nascita: <span th:text="${allievo.luogoNascita}"></span>
    		</div><br>
    		<a th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievi'}">Torna alla lista degli allievi</a><br>
-   		<a th:href="@{/}">Rimuovi iscrizione all'attivita'</a><br>
-   		<a th:href="@{/}">Rimuovi allievo dal sistema</a>
+   		<a th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievo' + '/' + ${allievo.id} +'/disiscriviAllievo'}">Rimuovi iscrizione all'attivita'</a><br>
+   		<a th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievo' + '/' + ${allievo.id} +'/eliminaAllievo'}">Rimuovi allievo dal sistema</a>
     </div>
 </body>
 </html>
