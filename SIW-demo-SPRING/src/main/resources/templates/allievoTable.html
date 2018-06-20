@@ -9,21 +9,21 @@
 <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
-	href="vendor/bootstrap/css/bootstrap.min.css">
+	href="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/bootstrap/css/bootstrap.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
-	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	href="https://colorlib.com/etc/tb/Table_Fixed_Column/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css"
-	href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/animate/animate.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
-	href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	href="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Column/css/util.css">
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/tb/Table_Fixed_Column/css/main.css">
 <link rel="stylesheet" type="text/css" href="form/css/main.css">
 <!--===============================================================================================-->
 </head>
@@ -31,12 +31,12 @@
 
 	<div class="limiter">
 		<div>
-			<a th:href="@{/addAllievo}" class="contact200-form-btn">Inserisci
+			<a th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/addAllievo'}" class="contact200-form-btn">Inserisci
 				un nuovo allievo</a>
 		</div>
 		<br>
 		<div>
-			<a th:href="@{/activities}" class="contact200-form-btn">Torna
+			<a th:href="@{'/centro' + '/' + ${centro.id} + '/activities'}" class="contact200-form-btn">Torna
 				alla lista delle attività</a>
 		</div>
 		<br>
@@ -57,7 +57,7 @@
 							<tbody>
 								<tr class="row body">
 									<td th:each="allievo : ${allievi}"><a
-										th:href="@{'/allievo' + '/' + ${allievo.id}}"> <span
+										th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievo' + '/' + ${allievo.id}}"> <span
 											class="cell100 column1"
 											th:text="${allievo.nome} + ' ' + ${allievo.cognome}"></span>
 									</a></td>
@@ -101,52 +101,51 @@
 			</div>
 		</div>
 	</div>
+	
 	<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/bootstrap/js/popper.js"></script>
+	<script src="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
+	<script src="https://colorlib.com/etc/tb/Table_Fixed_Column/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
 	<script>
-		$('.js-pscroll')
-				.each(
-						function() {
-							var ps = new PerfectScrollbar(this);
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
 
-							$(window).on('resize', function() {
-								ps.update();
-							})
+			$(window).on('resize', function(){
+				ps.update();
+			})
 
-							$(this)
-									.on(
-											'ps-x-reach-start',
-											function() {
-												$(this)
-														.parent()
-														.find(
-																'.table100-firstcol')
-														.removeClass(
-																'shadow-table100-firstcol');
-											});
+			$(this).on('ps-x-reach-start', function(){
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
 
-							$(this).on(
-									'ps-scroll-x',
-									function() {
-										$(this).parent().find(
-												'.table100-firstcol').addClass(
-												'shadow-table100-firstcol');
-									});
+			$(this).on('ps-scroll-x', function(){
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
 
-						});
+		});
+
+
+
+
 	</script>
-
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'UA-23581568-13');
+	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	
+
 </body>
 </html>

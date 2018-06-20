@@ -145,4 +145,8 @@ public class Allievo {
 		this.attivita.add(attivita);
 	}
 
+	public void removeAttivita(Attivita attivita) {
+		this.attivita.remove(attivita);
+	}
+
 }

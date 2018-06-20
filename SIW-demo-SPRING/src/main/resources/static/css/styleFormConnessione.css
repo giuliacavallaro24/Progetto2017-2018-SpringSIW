@@ -47,6 +47,7 @@ body{
 	margin-top: 20px;
 	padding: 0;
 	font-weight: bold;
+	font-size: 18px;
 }
 
 
@@ -67,7 +68,7 @@ body{
 
 .loginbox a{
 	border: none;
-	margin-top: 40px;
+	margin-top: 100px;
     outline: none;
     height: 35px;
     background: rgb(243, 173, 46);

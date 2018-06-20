@@ -83,6 +83,10 @@ public class Attivita {
 	public void addAllievo(Allievo allievo) {
 		this.allievi.add(allievo);
 	}
+	
+	public void removeAllievo(Allievo allievo) {
+		this.allievi.remove(allievo);
+	}
 
 	@Override
 	public int hashCode() {

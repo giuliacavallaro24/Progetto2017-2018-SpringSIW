@@ -35,29 +35,33 @@ public class AttivitaController {
 		return "attivitaTable"; // return "allievoList";
 	}
 
-	@RequestMapping("/centro/{id}/activities")
-	public String activitiesCentro(@PathVariable("id") Long id, Model model) {
-		Centro centro = centroService.findById(id);
+	@RequestMapping("/centro/{idc}/activities")
+	public String activitiesCentro(@PathVariable("idc") Long idc, Model model) {
+		Centro centro = centroService.findById(idc);
 		model.addAttribute("centro",centro);
 		model.addAttribute("activities", centro.getAttivita());
 		return "attivitaTable";
 	}
 
-	@RequestMapping("/addAttivita")
-	public String addAttivita(Model model) {
+	@RequestMapping("/centro/{idc}/addAttivita")
+	public String addAttivita(Model model, @PathVariable("idc") Long idc) {
+		Centro centro = centroService.findById(idc);
+		model.addAttribute("centro",centro);
 		model.addAttribute("attivita", new Attivita());
 		return "attivitaForm";
 	}
 
-	@RequestMapping(value = "/attivita/{id}", method = RequestMethod.GET)
-	public String getAttivita(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("attivita", this.attivitaService.findById(id));
+	@RequestMapping(value = "/centro/{idc}/attivita/{ida}", method = RequestMethod.GET)
+	public String getAttivita(@PathVariable("idc") Long idc, Model model, @PathVariable("ida") Long ida) {
+		Centro centro = centroService.findById(idc);
+		model.addAttribute("centro",centro);
+		model.addAttribute("attivita", this.attivitaService.findById(ida));
 		return "showAttivita";
 	}
 
-	@RequestMapping("/centro/{id}/attivita")
+	@RequestMapping("/centro/{idc}/attivita")
 	public String newAttivita(@Valid @ModelAttribute("attivita") Attivita attivita, Model model,
-			BindingResult bindingResult, @PathVariable("id") Long id) {
+			BindingResult bindingResult, @PathVariable("idc") Long idc) {
 		this.validator.validate(attivita, bindingResult);
 
 		if (this.attivitaService.alreadyExists(attivita)) {
@@ -66,8 +70,9 @@ public class AttivitaController {
 		} else {
 			if (!bindingResult.hasErrors()) {
 				this.attivitaService.save(attivita);
-				Centro centro = centroService.findById(id);
+				Centro centro = centroService.findById(idc);
 				centro.addAttivita(attivita);
+				this.centroService.save(centro);
 				model.addAttribute("centro", centro);
 				model.addAttribute("activities", centro.getAttivita());
 				return "attivitaTable"; // return "allievoList";

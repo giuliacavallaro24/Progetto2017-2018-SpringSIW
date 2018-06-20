@@ -50,16 +50,14 @@ public class AllievoController {
 		return "allievoTable";
 	}
 
-	@RequestMapping("/addAllievo")
-	public String addAllievo(Model model) {
+	@RequestMapping("/centro/{idc}/attivita/{ida}/addAllievo")
+	public String addAllievo(Model model, @PathVariable("idc") Long idc, @PathVariable("ida") Long ida) {
+		Centro centro = centroService.findById(idc);
+		Attivita attivita = attivitaService.findById(ida);
+		model.addAttribute("centro", centro);
+		model.addAttribute("attivita", attivita);
 		model.addAttribute("allievo", new Allievo());
 		return "allievoForm";
-	}
-
-	@RequestMapping(value = "/allievo/{id}", method = RequestMethod.GET)
-	public String getAllievooo(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("allievo", this.allievoService.findById(id));
-		return "showAllievo";
 	}
 
 	@RequestMapping("centro/{idc}/attivita/{ida}/allievo/{id}")
@@ -86,6 +84,8 @@ public class AllievoController {
 			if (!bindingResult.hasErrors()) {
 				Centro centro = centroService.findById(idc);
 				Attivita attivita = attivitaService.findById(ida);
+				attivita.addAllievo(allievo);
+				allievo.addAttivita(attivita);
 				model.addAttribute("centro", centro);
 				model.addAttribute("attivita", attivita);
 				model.addAttribute("allievi", attivita.getAllievi());
@@ -94,5 +94,19 @@ public class AllievoController {
 			}
 		}
 		return "allievoForm";
+	}
+	
+	@RequestMapping("/centro/{idc}/attivita/{ida}/allievo/{id}/disiscriviAllievo")
+	public String disiscriviAllievo(@Valid @ModelAttribute("allievo") Allievo allievo, Model model,
+			BindingResult bindingResult, @PathVariable("idc") Long idc, @PathVariable("ida") Long ida, @PathVariable("id") Long id) {
+		Centro centro = centroService.findById(idc);
+		Attivita attivita = attivitaService.findById(ida);
+		attivita.removeAllievo(allievo);
+		allievo.removeAttivita(attivita);
+		model.addAttribute("centro", centro);
+		model.addAttribute("attivita", attivita);
+		model.addAttribute("allievi", attivita.getAllievi());
+		
+		return "allievoTable";
 	}
 }

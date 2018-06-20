@@ -40,7 +40,7 @@
 		<h4 class="title"></h4>
 		<p th:text="${exists}"></p>
 	</div>
-	<form th:action="@{/allievo}" method="POST" th:object="${allievo}">
+	<form th:action="@{'/centro/__${centro.id}__/attivita/__${attivita.id}__/allievo'}" method="POST" th:object="${allievo}">
 		<div class="container-contact100">
 			<!-- <div class="contact100-map" id="google_map" data-map-x="40.722047"
 				data-map-y="-73.986422" data-pin="form/images/icons/map-marker.png"
