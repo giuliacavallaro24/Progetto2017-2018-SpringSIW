@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -38,16 +37,6 @@ public class Centro {
 	@JoinColumn(name = "centro_id")
 	private List<Attivita> attivita;
 
-	@ManyToOne
-	private Responsabile responsabile;
-
-	public Responsabile getResponsabile() {
-		return responsabile;
-	}
-
-	public void setResponsabile(Responsabile responsabile) {
-		this.responsabile = responsabile;
-	}
 
 	public Centro(String nome, String indirizzo, String email, long telefono, int cap) {
 		this.nome = nome;
