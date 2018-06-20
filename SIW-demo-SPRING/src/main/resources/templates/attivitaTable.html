@@ -54,7 +54,7 @@
 								<tr class="row body">
 									<td th:each="attivita : ${activities}">
 										<a th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievi'}">
-											<!--  <a th:href="@{'attivita' + '/' + ${attivita.id}}"> -->
+											<!--  <a th:href="@{'/allievi'}"> -->
 											<span class="cell100 column1" th:text="${attivita.nome}"></span>
 										</a>
 									</td>

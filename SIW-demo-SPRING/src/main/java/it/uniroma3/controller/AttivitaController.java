@@ -30,8 +30,8 @@ public class AttivitaController {
 	private AttivitaValidator validator;
 
 	@RequestMapping("/activities")
-	public String activities(Model model, @Valid @ModelAttribute("centro") Centro centro) {
-		model.addAttribute("activities", centro.getAttivita());
+	public String activities(Model model) {
+		model.addAttribute("activities", this.attivitaService.findAll());
 		return "attivitaTable"; // return "allievoList";
 	}
 
