@@ -1,6 +1,9 @@
 package it.uniroma3.model;
 
+import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import it.uniroma3.model.Allievo;
 import javax.persistence.Column;
@@ -85,7 +88,13 @@ public class Attivita {
 	}
 	
 	public void removeAllievo(Allievo allievo) {
-		this.allievi.remove(allievo);
+		List<Allievo> list = new ArrayList<>();
+		for(Allievo a: this.allievi) {
+			if(!a.getEmail().equals(allievo.getEmail())) {
+				list.add(a);
+			}
+		}
+		this.setAllievi(list);
 	}
 
 	@Override
