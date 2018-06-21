@@ -28,28 +28,30 @@ public class Centro {
 	private String email;
 
 	@Column(nullable = false)
-	private long telefono;
+	private String telefono;
 
 	@Column(nullable = false)
-	private int capienzaMax;
+	private String capienzaMax;
 
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "centro_id")
 	private List<Attivita> attivita;
 
 
-	public Centro(String nome, String indirizzo, String email, long telefono, int cap) {
+	public Centro(String nome, String indirizzo, String email, String telefono, String capienzaMax) {
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 		this.email = email;
 		this.telefono = telefono;
-		this.capienzaMax = cap;
+		this.capienzaMax = capienzaMax;
 		this.attivita = new ArrayList<Attivita>();
 	}
+
 
 	public Centro() {
 		this.attivita = new ArrayList<Attivita>();
 	}
+
 
 	public String getNome() {
 		return nome;
@@ -75,19 +77,19 @@ public class Centro {
 		this.email = email;
 	}
 
-	public long getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public int getCapienzaMax() {
+	public String getCapienzaMax() {
 		return capienzaMax;
 	}
 
-	public void setCapienzaMax(int capienzaMax) {
+	public void setCapienzaMax(String capienzaMax) {
 		this.capienzaMax = capienzaMax;
 	}
 
@@ -105,10 +107,6 @@ public class Centro {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public void setTelefono(long telefono) {
-		this.telefono = telefono;
 	}
 
 	public void addAttivita(Attivita attivita) {

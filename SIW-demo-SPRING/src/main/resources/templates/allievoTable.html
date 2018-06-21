@@ -73,7 +73,7 @@
 									<td th:each="allievo : ${allievi}"><a
 										th:href="@{'/centro' + '/' + ${centro.id} + '/attivita' + '/' + ${attivita.id} + '/allievo' + '/' + ${allievo.id}}">
 											<span class="cell100 column1"
-											th:text="${allievo.nome} + ' ' + ${allievo.cognome}" style="font-family:Poppins-Regular, sans-serif; font-size: 19.5px; color: #f1c11a;"></span>
+											th:text="${allievo.nome} + ' ' + ${allievo.cognome}" style="font-family:Poppins-Regular, sans-serif; font-size: 19.5px; color: #f1c11a;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='#f1c11a';"></span>
 									</a></td>
 								</tr>
 							</tbody>

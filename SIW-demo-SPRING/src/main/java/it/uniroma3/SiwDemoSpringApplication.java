@@ -35,7 +35,7 @@ public class SiwDemoSpringApplication {
 	}
 	
 	private void carica() {
-		Centro centro = new Centro("ACCADEMIA ESTETICA SPECIALIZZATA S.A.S", "V. Plinio, 7 - Roma", "info@scuola-silvestrini.it", 8009090, 300);
+		Centro centro = new Centro("ACCADEMIA ESTETICA SPECIALIZZATA S.A.S", "V. Plinio, 7 - Roma", "info@scuola-silvestrini.it", "8009090", "300");
 		Allievo allievo = new Allievo("Carlo", "Verdi", "verdicarlo@me.it", "1234", "12/07/89", "Ginevra");
 		
 		Attivita attivita = new Attivita("Formazione teorica", "lunedi'/9-11 a.m.");
@@ -44,9 +44,11 @@ public class SiwDemoSpringApplication {
 		allievo.addAttivita(attivita);
 		centro.addAttivita(attivita);
 		
-		attivitaService.save(attivita);		
+		attivitaService.save(attivita);
+		allievoService.save(allievo);
 		
 		attivita = new Attivita("Qualifica biennale minorenni", "martedi'/10-12 a.m.");
+		allievo = new Allievo("Alessandro", "Rossi", "rossi@me.it", "3456", "05/03/90", "Milano");
 		
 		attivita.addAllievo(allievo);
 		allievo.addAttivita(attivita);
